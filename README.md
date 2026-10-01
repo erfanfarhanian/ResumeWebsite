@@ -1,4 +1,4 @@
-# وب‌سایت رزومه و پورتفولیو شخصی (نسخه ۲.۰)
+# Personal Resume & Portfolio Website (v2.0)
 
 [![Framework](https://img.shields.io/badge/.NET-8.0-512BD4?style=flat-square&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 [![C#](https://img.shields.io/badge/C%23-12.0-239120?style=flat-square&logo=c-sharp&logoColor=white)](https://docs.microsoft.com/en-us/dotnet/csharp/)
@@ -6,47 +6,47 @@
 [![Entity Framework Core](https://img.shields.io/badge/EF%20Core-8.0-512BD4?style=flat-square)](https://docs.microsoft.com/en-us/ef/core/)
 [![Architecture](https://img.shields.io/badge/Architecture-3--Tier%20Layered-blue?style=flat-square)](#)
 
-این مخزن شامل سورس‌کد کامل وب‌سایت رزومه و نمونه‌کارهای شخصی من (نسخه ۲.۰) است که با استفاده از **ASP.NET Core 8 (.NET 8)**، تکنولوژی **Entity Framework Core 8** و دیتابیس **Microsoft SQL Server** پیاده‌سازی شده است. معماری پروژه به‌صورت چندلایه‌ای و تمیز طراحی شده و دارای بخش عمومی نمایش رزومه و پنل مدیریت جامع جهت مدیریت آنلاین محتوا است.
+The complete source code of my personal resume and portfolio website (Version 2.0), built with **ASP.NET Core 8 (.NET 8)**, **Entity Framework Core 8**, and **Microsoft SQL Server**. The solution follows a clean multi-tier layered architecture featuring an interactive public showcase and a comprehensive administrative control panel for real-time portfolio management.
 
 ---
 
-## ✨ امکانات و قابلیت‌های کلیدی
+## ✨ Key Features
 
-### 👤 بخش عمومی (کاربران و بازدیدکنندگان)
-- **نمایش داینامیک رزومه:** بارگذاری سوابق شغلی، مدارک و مقاطع تحصیلی، مهارت‌های تخصصی، مجوزها و دوره‌ها به‌صورت پویا از دیتابیس.
-- **کاتالوگ نمونه‌کارها (Portfolio):** معرفی پروژه‌ها به همراه دسته‌بندی موضوعی، تصاویر و جزییات فنی.
-- **بخش وبلاگ:** مقالات و مطالب آموزشی با قابلیت دسته‌بندی و صفحه‌بندی (Pagination).
-- **فرم ارتباط با من:** فرم ارسال پیام با اعتبارسنجی سمت کلاینت و سرور و ذخیره‌سازی در دیتابیس.
-- **طراحی مدرن و کاملاً واکنش‌گرا (Responsive):** بهینه‌سازی شده برای انواع نمایشگرها و دستگاه‌های موبایل با Bootstrap و استایل‌های سفارشی.
+### 👤 Public Showcase
+- **Dynamic Resume Presentation:** Career timeline, work experience, academic background, certified licenses, and technical skills loaded dynamically from the database.
+- **Project Portfolio Catalog:** Showcase projects categorized with rich details, images, and external links.
+- **Blog Section:** Technical articles and insights with category filtering and pagination.
+- **Interactive Contact Form:** Secure contact form with client & server-side validation and database logging.
+- **Modern & Responsive UI:** Fully responsive layout built with Bootstrap and custom styling, optimized for all screen sizes and mobile devices.
 
-### ⚙️ پنل مدیریت (Admin Dashboard)
-- **احراز هویت و امنیت:** ورود مدیر با نشست‌های امن و رمزگذاری کلمات عبور.
-- **مدیریت کامل اطلاعات (CRUD):**
-  - درباره من (بیوگرافی، مشخصات و راه‌های ارتباطی)
-  - سوابق شغلی و تجربیات کاری
-  - سوابق تحصیلی
-  - مهارت‌های فنی و فردی
-  - مدارک و گواهینامه‌ها
-  - فعالیت‌ها و خدمات
-  - پروژه‌های نمونه‌کار و دسته‌بندی‌ها
-  - مقالات وبلاگ و دسته‌بندی‌ها
-  - صندوق پیام‌های دریافتی از کاربران
-- **مدیریت فایل‌ها و تصاویر:** آپلود و مدیریت تصاویر پروژه‌ها، مقالات و آواتار.
+### ⚙️ Admin Control Panel (Dashboard)
+- **Role-Based Authentication:** Protected administration area with secure authentication cookies and hashed passwords.
+- **Comprehensive CRUD Operations:** Management interfaces for:
+  - About Me / Bio / Contact details
+  - Experiences & Work History
+  - Education & Academic Credentials
+  - Skills & Proficiencies
+  - Licenses & Certificates
+  - Activities & Services
+  - Portfolio items & Categories
+  - Blog articles & Categories
+  - Contact Us messages & inquiries
+- **Media & Image Management:** Upload and processing pipeline for portfolio, blog, and avatar media.
 
 ---
 
-## 🏗️ معماری و ساختار پروژه
+## 🏗️ Architecture & Project Structure
 
-پروژه با ساختار لایه‌ای و ماژولار (Separation of Concerns) توسعه داده شده است:
+The solution follows a multi-tier layered architecture (Separation of Concerns):
 
 ```
-├── Db/                               # بک‌آپ دیتابیس SQL Server
-│   └── ResumeWebsite_DB              # فایل بک‌آپ دیتابیس پروژه
-├── ResumeWebsite/                    # پوشه اصلی راه‌حل (Solution)
-│   ├── Resume.Business/              # لایه منطق کسب‌وکار، سرویس‌ها، توابع کمکی و Extensionها
-│   ├── Resume.DAL/                   # لایه داده (EF Core، مدل‌ها، ویومدل‌ها، ریپازیتوری‌ها و مایگریشن‌ها)
-│   ├── Resume.Web/                   # لایه ارائه‌ی وب (کنترلرها، ویوها، بخش مدیریت Areas/Admin و کامپوننت‌ها)
-│   └── ResumeWebsite.sln             # فایل راه‌حل ویژوال استودیو
+├── Db/                               # Database backup files
+│   └── ResumeWebsite_DB              # SQL Server backup file
+├── ResumeWebsite/                    # Main Solution directory
+│   ├── Resume.Business/              # Business logic, services, helpers & extensions
+│   ├── Resume.DAL/                   # Data Access Layer (EF Core, Models, ViewModels, Repositories, Migrations)
+│   ├── Resume.Web/                   # Presentation Layer (Controllers, Views, Areas/Admin, ViewComponents)
+│   └── ResumeWebsite.sln             # Visual Studio Solution
 ├── .gitattributes
 ├── .gitignore
 ├── LICENSE
@@ -55,7 +55,7 @@
 
 ---
 
-## 🛠️ تکنولوژی‌ها و ابزارهای مورد استفاده
+## 🛠️ Tech Stack
 
 - **Backend:** C# 12, ASP.NET Core 8.0 MVC
 - **ORM / Data Access:** Entity Framework Core 8.0 (Code-First & Migrations)
@@ -66,5 +66,5 @@
 
 ---
 
-## 📄 لایسنس
-این پروژه تحت لایسنس [MIT](LICENSE) منتشر شده است.
+## 📄 License
+This project is open-source and available under the [MIT License](LICENSE).

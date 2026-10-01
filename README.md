@@ -68,3 +68,17 @@ The solution follows a multi-tier layered architecture (Separation of Concerns):
 
 ## 📄 License
 This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+## 📸 Screenshots
+<p align="center">
+  <img width="1845" height="841" alt="image" src="https://github.com/user-attachments/assets/80322566-8a4c-414a-a89c-3b447fa6ff00" />
+</p>
+<img width="2414" height="1158" alt="image" src="https://github.com/user-attachments/assets/74665ccd-6b79-4041-9d09-b2ad64ad63a0" />
+<img width="2414" height="1158" alt="image" src="https://github.com/user-attachments/assets/81335cd5-1988-4ca3-9c4e-b005d87f7c13" />
+<img width="2414" height="1158" alt="image" src="https://github.com/user-attachments/assets/90972033-98aa-48e0-b488-ab448a64eb0c" />
+<img width="2414" height="1158" alt="image" src="https://github.com/user-attachments/assets/17281fe7-95ba-4d0f-8ddd-fbc58eeb4330" />
+<img width="2414" height="1158" alt="image" src="https://github.com/user-attachments/assets/13925963-76dd-49dd-838e-fd4ee413a33b" />
+
+

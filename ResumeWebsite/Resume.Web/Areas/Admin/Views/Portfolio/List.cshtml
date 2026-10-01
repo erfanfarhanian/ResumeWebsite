@@ -1,0 +1,120 @@
+﻿@using Resume.Bussines.Extentions
+@using Resume.DAL.ViewModels.Portfolio
+@model FilterPortfolioViewModel
+
+@{
+    ViewData["Title"] = "لیست نمونه کارها";
+}
+
+<div class="block-header">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumb breadcrumb-style ">
+                <li class="breadcrumb-item">
+                    <h4 class="page-title">@ViewData["Title"]</h4>
+                </li>
+                <li class="breadcrumb-item bcrumb-1">
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index">
+                        <i class="fas fa-home"></i> داشبورد
+                    </a>
+                </li>
+                <li class="breadcrumb-item bcrumb-2">
+                    <a href="#" onClick="return false;">مدیریت نمونه کارهای من</a>
+                </li>
+                <li class="breadcrumb-item active"> @ViewData["Title"]</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    فیلترها
+                </h2>
+            </div>
+            <div class="body">
+                <form method="get" asp-action="List" id="filter-search">
+                    <input type="hidden" asp-for="Page" />
+                    <div class="row clearfix">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" asp-for="Title">
+                                    <label class="form-label" asp-for="Title"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" asp-for="ProjectDate">
+                                    <label class="form-label" asp-for="ProjectDate"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button class="btn btn-info">جستجو</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @ViewData["Title"]
+                    <a style="float:left" asp-action="Create" asp-controller="Portfolio" asp-area="Admin" class="btn btn-success">افزودن پروژه</a>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                @if (Model != null && Model.Entities != null && Model.Entities.Any())
+                {
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>شناسه</th>
+                                <th>تصویر</th>
+                                <th>عنوان</th>
+                                <th>تاریخ پروژه</th>
+                                <th>تاریخ ایجاد</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var portfolio in Model.Entities)
+                            {
+                                <tr>
+                                    <th scope="row">@portfolio.ID</th>
+                                    <td>
+                                        <img src="~/Img/Portfolio/@portfolio.ImageUrl" class="thumbnail" alt="@portfolio.Title" width="150" height="100" />
+                                    </td>
+                                    <td>@portfolio.Title</td>
+                                    <td>@portfolio.ProjectDate</td>
+                                    <td>@portfolio.CreateDate.ToShamsi()</td>
+                                    <td>
+                                        <a asp-action="Update" asp-route-id="@portfolio.ID" class="text-warning">
+                                            <i class="fa fa-pen"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@portfolio.ID" class="text-warning">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <partial name="_AdminPagination" model="@Model.GetCurrentPaging()" />
+                }
+                else
+                {
+                    <partial name="_AdminNotFound" />
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

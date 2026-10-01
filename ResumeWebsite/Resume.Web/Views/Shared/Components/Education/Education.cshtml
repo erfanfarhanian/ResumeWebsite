@@ -1,0 +1,24 @@
+﻿@using Resume.Bussines.Convertors
+@using Resume.DAL.ViewModels.Education
+@model FilterEducationViewModel
+
+@if (Model != null && Model.Entities.Any())
+{
+    <div class="col-12">
+        <h2 class="title title--h3"><img class="title-icon" src="/Site/assets/icons/icon-education.svg" alt="تحصیلات" /> تحصیلات</h2>
+        <div class="timeline">
+            <!-- Item -->
+            @foreach (var education in Model.Entities)
+            {
+                <article class="timeline__item">
+                    <h5 class="title title--h5 timeline__title">@education.Title</h5>
+                    <span class="timeline__period">
+                        @education.StartDate.ToShamsi().ToShamsiMonthYear() - @(education.EndDate.HasValue? education.EndDate.Value.ToShamsi().ToShamsiMonthYear() : "در حال تحصیل")
+                        </span>
+                    <p class="timeline__description">@education.Description</p>
+                </article>
+            }
+        </div>
+    </div>
+}
+

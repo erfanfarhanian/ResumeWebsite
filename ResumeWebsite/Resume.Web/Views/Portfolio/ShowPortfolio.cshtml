@@ -1,0 +1,27 @@
+﻿@using Resume.DAL.ViewModels.Portfolio
+@model EditPortfolioViewModel
+
+@{
+	ViewData["Title"] = Model.Title;
+}
+
+<!-- Content -->
+<div class="col-12 col-md-12 col-lg-12">
+	<div class="box box-content">
+		<!-- Post -->
+		<div class="pb-3">
+			<header class="header-post">
+				<h1 class="title title--h1">@ViewData["Title"]</h1>
+				<div class="caption-post">
+					<p>@Model.ProjectDate</p>
+				</div>
+				<div class="header-post__image-wrap">
+					<img class="cover lazyload" src="/Img/Portfolio/@Model.ImageUrl" data-zoom alt="@Model.Title" />
+				</div>
+			</header>
+			<div class="caption-post">
+				<p align="justify">@Html.Raw(Model.Description)</p>
+			</div>
+		</div>
+	</div>
+</div>

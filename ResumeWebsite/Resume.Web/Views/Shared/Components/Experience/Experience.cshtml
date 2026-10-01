@@ -1,0 +1,24 @@
+﻿@using Resume.Bussines.Convertors
+@using Resume.DAL.ViewModels.Experience
+@model FilterExperienceViewModel
+
+@if (Model != null && Model.Entities.Any())
+{
+    <div class="col-12">
+        <h2 class="title title--h3"><img class="title-icon" src="/Site/assets/icons/icon-experience.svg" alt="تحصیلات" /> تجربه های کاری</h2>
+        <div class="timeline">
+            <!-- Item -->
+            @foreach (var experience in Model.Entities)
+            {
+                <article class="timeline__item">
+                    <h5 class="title title--h5 timeline__title">@experience.Title</h5>
+                    <span class="timeline__period">
+                        @experience.StartDate.ToShamsi().ToShamsiMonthYear() - @(experience.EndDate.HasValue ? experience.EndDate.Value.ToShamsi().ToShamsiMonthYear() : "حاضر")
+                    </span>
+        
+                    <p class="timeline__description" align="justify">@experience.Description</p>
+                </article>
+            }
+        </div>
+    </div>
+}

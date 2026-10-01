@@ -1,0 +1,95 @@
+﻿@using Resume.DAL.ViewModels.ContactUs
+@model ContactUsDetailsViewModel
+
+@{
+    ViewData["Title"] = "جزئیات تماس با ما";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @ViewData["Title"]
+                </h2>
+            </div>
+            <div class="body">
+                <form asp-action="Details" method="post">
+                    <input type="hidden" asp-for="ContactUsID" />
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" asp-for="Title" class="form-control" readonly placeholder="عنوان">
+                                    <span class="text-danger" asp-validation-for="Title"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" asp-for="Email" class="form-control" readonly placeholder="ایمیل">
+                                    <span class="text-danger" asp-validation-for="Email"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" asp-for="Mobile" class="form-control" readonly placeholder="شماره تماس">
+                                    <span class="text-danger" asp-validation-for="Mobile"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" asp-for="FirstName" class="form-control" readonly placeholder="نام">
+                                    <span class="text-danger" asp-validation-for="FirstName"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" asp-for="LastName" class="form-control" readonly placeholder="نام خانوادگی">
+                                    <span class="text-danger" asp-validation-for="LastName"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea class="form-control" asp-for="Description" readonly placeholder="متن">
+                                        @Model.Description
+                                    </textarea>
+                                    <span class="text-danger" asp-validation-for="Description"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea class="form-control" asp-for="Answer" placeholder="پاسخ">
+                                        @Model.Answer
+                                    </textarea>
+                                    <span class="text-danger" asp-validation-for="Answer"></span>
+                                </div>
+                            </div>
+                        </div>
+                        @if (string.IsNullOrEmpty(Model.Answer))
+                        {
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-success btn-lg m-l-15 waves-effect">ثبت پاسخ</button>
+                            </div>
+                        }
+                        <div class="container">
+                            <a asp-area="Admin" asp-controller="ContactUs" asp-action="List" class="btn btn-danger btn-lg m-l-15 waves-effect">بازگشت</a>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

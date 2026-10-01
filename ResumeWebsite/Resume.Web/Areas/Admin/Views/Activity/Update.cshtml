@@ -1,0 +1,65 @@
+﻿@using Resume.DAL.ViewModels.Activity
+@model EditActvityViewModel
+
+@{
+    ViewData["Title"] = "ویرایش فعالیت";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @ViewData["Title"]
+                </h2>
+            </div>
+            <div class="body">
+                <form asp-action="Update" method="post">
+                    <input type="hidden" asp-for="ID" />
+                    <div class="row clearfix">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" asp-for="Title" class="form-control" placeholder="عنوان">
+                                    <span class="text-danger" asp-validation-for="Title"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-6">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" asp-for="Icon" class="form-control" placeholder="آیکون">
+                                    <span class="text-danger" asp-validation-for="Icon"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea asp-for="Description" class="form-control" rows="3" placeholder="توضیحات"></textarea>
+                                    <span class="text-danger" asp-validation-for="Description"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <p>آیکون ها:</p>
+                                <div class="simple-line-icon-container row">
+                                    <div class="col-sm-6 col-md-4 col-lg-3"> <img src="/Site/assets/icons/icon-app.svg" width="20" height="20" /> /Site/assets/icons/icon-app.svg </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3"> <img src="/Site/assets/icons/icon-design.svg" width="20" height="20" /> /Site/assets/icons/icon-design.svg </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3"> <img src="/Site/assets/icons/icon-dev.svg" width="20" height="20" /> /Site/assets/icons/icon-dev.svg </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3"> <img src="/Site/assets/icons/icon-education.svg" width="20" height="20" /> /Site/assets/icons/education.svg </div>
+                                    <div class="col-sm-6 col-md-4 col-lg-3"> <img src="/Site/assets/icons/icon-experience.svg" width="20" height="20" /> /Site/assets/icons/experience.svg </div>
+                                </div>
+                                <p class="text text-danger">* لطفا خارج از آیکون های بالا چیز دیگری وارد نکنید، در غیر این صورت آیکونی نمایش داده نخواهد شد.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit" class="btn btn-warning m-l-15 waves-effect">ویرایش</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

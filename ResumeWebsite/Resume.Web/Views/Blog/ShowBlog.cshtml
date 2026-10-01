@@ -1,0 +1,29 @@
+﻿@using Resume.DAL.ViewModels.Blog
+@model EditBlogViewModel
+
+@{
+	ViewData["Title"] = Model.Title;
+}
+
+<!-- Content -->
+<div class="col-12 col-md-12 col-lg-12">
+	<div class="box box-content">
+		<!-- Post -->
+		<div class="pb-3">
+			<header class="header-post">
+				<h1 class="title title--h1">@ViewData["Title"]</h1>
+				<div class="caption-post">
+					<p>@Model.BlogDate</p>
+				</div>
+				<div class="header-post__image-wrap">
+					<img class="cover lazyload" src="/Img/blog/@Model.ImageUrl" data-zoom alt="@Model.Title" />
+				</div>
+			</header>
+			<div class="caption-post">
+				<p>@Html.Raw(Model.ShortText)</p>
+				<br />
+				<p>@Html.Raw(Model.LongText)</p>
+			</div>
+		</div>
+	</div>
+</div>

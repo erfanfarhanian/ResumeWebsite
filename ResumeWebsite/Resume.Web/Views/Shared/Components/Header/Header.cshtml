@@ -1,0 +1,36 @@
+﻿@using Resume.Bussines.Convertors
+@using Resume.Bussines.Tools
+@using Resume.DAL.ViewModels.AboutMe
+@model ClientSideEditAboutMeViewModel
+
+<header class="header box">
+	<div class="header__left">
+		<div class="header__photo">
+			<img class="header__photo-img" src="@SiteTools.AboutMeAvatar@Model.ImageName" alt="@Model.FirstName @Model.LastName">
+		</div>
+		<div class="header__base-info">
+			<h4 class="title titl--h4">@Model.FirstName @Model.LastName</h4>
+			@if (!string.IsNullOrEmpty(Model.Position))
+			{
+				<div class="status">@Model.Position</div>
+			}
+			@await Component.InvokeAsync("SocialMedia")
+		</div>
+	</div>
+	<div class="header__right">
+		<ul class="header__contact">
+			<li><span class="overhead">ایمیل</span>@Model.Email</li>
+			<li><span class="overhead">تلفن</span>@Model.Mobile</li>
+		</ul>
+		<ul class="header__contact">
+			@if (Model.BirthDate.HasValue)
+			{
+				<li><span class="overhead">تولد</span>@Model.BirthDate.Value.ToShamsi().ToShamsiMonthYear()</li>
+			}
+			@if (!string.IsNullOrEmpty(Model.Location))
+			{
+				<li><span class="overhead">محل سکونت</span>@Model.Location</li>
+			}
+		</ul>
+	</div>
+</header>

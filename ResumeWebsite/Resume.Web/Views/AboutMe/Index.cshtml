@@ -1,0 +1,20 @@
+﻿@using Resume.DAL.ViewModels.AboutMe
+@model ClientSideEditAboutMeViewModel
+
+@{
+    ViewData["Title"] = "صفحه اصلی";
+}
+
+@{
+    // Show the header on this page
+    ViewData["ShowHeader"] = true;
+}
+
+<div class="box box-content">
+    <!-- About -->
+    <div class="pb-0 pb-sm-2">
+        <h1 class="title title--h1 first-title title__separate">درباره ی من</h1>
+        <p align="justify">@Model.Bio</p>
+    </div>
+	@await Component.InvokeAsync("MyActivity")
+</div>

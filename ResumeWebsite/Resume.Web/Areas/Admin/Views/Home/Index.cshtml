@@ -1,0 +1,72 @@
+﻿@using Resume.DAL.ViewModels.Dashboard
+@model DashboardViewModel
+
+@{
+    ViewData["Title"] = "داشبورد";
+}
+
+<div class="block-header">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumb breadcrumb-style">
+                <li class="breadcrumb-item 	bcrumb-1">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="material-icons">home</i>
+                        خانه
+                    </a>
+                </li>
+                <li class="breadcrumb-item active">داشبورد</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Widgets -->
+<div class="row">
+    <div class="col-lg-4 col-sm-8">
+        <div class="info-box7 l-bg-green order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20">تماس با من</h4>
+                <h2 class="text-right"><i class="fas fa-envelope pull-left"></i><span>@Model.ContactUsCount</span></h2>
+                <p class="m-b-0"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-8">
+        <div class="info-box7 l-bg-purple order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20"> پروژه ها</h4>
+                <h2 class="text-right"><i class="fas fa-business-time pull-left"></i><span>@Model.ProjectsCount</span></h2>
+                <p class="m-b-0"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-8">
+        <div class="info-box7 l-bg-orange order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20"> مطالب</h4>
+                <h2 class="text-right"><i class="far fa-newspaper pull-left"></i><span>@Model.BlogCount</span></h2>
+                <p class="m-b-0"></p>
+            </div>
+        </div>
+    </div>
+
+    @* <div class="col-lg-3 col-sm-6">
+        <div class="info-box7 l-bg-cyan order-info-box7">
+            <div class="info-box7-block">
+                <h4 class="m-b-20"> نظرات</h4>
+                <h2 class="text-right"><i class="far fa-comments pull-left"></i><span>25698</span></h2>
+                <p class="m-b-0"></p>
+            </div>
+        </div>
+    </div> *@
+</div>
+<!-- #END# Widgets -->
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+            @await Component.InvokeAsync("ContactUs")
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Resume.DAL.ViewModels.User
+{
+    public class EditeUserViewModel
+    {
+        #region Properties
+
+        public int ID { get; set; }
+
+        [Display(Name = "نام")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(150, ErrorMessage = "تعداد کاراکتر وارد شده صحیح نمی باشد")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "نام خانوادگی")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(150, ErrorMessage = "تعداد کاراکتر وارد شده صحیح نمی باشد")]
+        public string LastName { get; set; }
+
+        [Display(Name = "ایمیل")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(350, ErrorMessage = "تعداد کاراکتر وارد شده صحیح نمی باشد")]
+        public string Email { get; set; }
+
+        [Display(Name = "شماره همراه")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [MaxLength(11, ErrorMessage = "تعداد کاراکتر وارد شده صحیح نمی باشد")]
+        public string Mobile { get; set; }
+
+        [Display(Name = "فعال")]
+        public bool IsActive { get; set; }
+
+        #endregion
+    }
+
+    public enum EditUserResult
+    {
+        Success,
+        Error,
+        UserNotFound,
+        DuplicatedEmail,
+        DuplicatedMobile
+    }
+}

@@ -1,0 +1,137 @@
+﻿@using Resume.Bussines.Extentions
+@using Resume.DAL.ViewModels.SocialMedia
+@model FilterSocialMediaViewModel
+
+@{
+    ViewData["Title"] = "لیست شبکه های اجتماعی";
+}
+
+<div class="block-header">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumb breadcrumb-style ">
+                <li class="breadcrumb-item">
+                    <h4 class="page-title">@ViewData["Title"]</h4>
+                </li>
+                <li class="breadcrumb-item bcrumb-1">
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index">
+                        <i class="fas fa-home"></i> داشبورد
+                    </a>
+                </li>
+                <li class="breadcrumb-item bcrumb-2">
+                    <a href="#" onClick="return false;">مدیریت شبکه های اجتماعی من</a>
+                </li>
+                <li class="breadcrumb-item active"> @ViewData["Title"]</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-4">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    فیلترها
+                </h2>
+            </div>
+            <div class="body">
+                <form method="get" asp-action="List" id="filter-search">
+                    <input type="hidden" asp-for="Page" />
+                    <div class="row clearfix">
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" asp-for="Title">
+                                    <label class="form-label" asp-for="Title"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button class="btn btn-info">جستجو</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @ViewData["Title"]
+                    <a style="float:left" asp-action="Create" asp-controller="SocialMedia" asp-area="Admin" class="btn btn-success">افزودن شبکه اجتماعی</a>
+                </h2>
+            </div>
+            <div class="body table-responsive">
+                @if (Model != null && Model.Entities != null && Model.Entities.Any())
+                {
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>شناسه</th>
+                                <th>عنوان</th>
+                                <th>آیکون</th>
+                                <th>تاریخ ایجاد</th>
+                                <th>آدرس</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var socialMedia in Model.Entities)
+                            {
+                                <tr>
+                                    <th scope="row">@socialMedia.ID</th>
+                                    <td>@socialMedia.Title</td>
+                                    <td>
+                                        @if (socialMedia.Icon == "font-icon icon-github1")
+                                        {
+                                            <i class="ti-github"></i>
+                                        }
+                                        else if (socialMedia.Icon == "font-icon icon-linkedin1")
+                                        {
+                                            <i class="ti-linkedin"></i>
+                                        }
+                                        else if (socialMedia.Icon == "font-icon icon-facebook1")
+                                        {
+                                            <i class="ti-facebook"></i>
+                                        }
+                                        else if (socialMedia.Icon == "font-icon icon-skype")
+                                        {
+                                            <i class="ti-skype"></i>
+                                        }
+                                        else if (socialMedia.Icon == "ti-font-icon icon-youtube1")
+                                        {
+                                            <i class="ti-youtube"></i>
+                                        }
+                                        else if (socialMedia.Icon == "font-icon icon-twitter1")
+                                        {
+                                            <i class="ti-twitter"></i>
+                                        }
+                                    </td>
+                                    <td>@socialMedia.CreateDate.ToShamsi()</td>
+                                    <td>
+                                        <a href="@socialMedia.Url" target="_blank">@socialMedia.Url</a>
+                                    </td>
+                                    <td>
+                                        <a asp-action="Update" asp-route-id="@socialMedia.ID" class="text-warning">
+                                            <i class="fa fa-pen"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@socialMedia.ID" class="text-warning">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <partial name="_AdminPagination" model="@Model.GetCurrentPaging()" />
+                }
+                else
+                {
+                    <partial name="_AdminNotFound" />
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

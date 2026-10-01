@@ -1,0 +1,21 @@
+﻿@using Resume.DAL.ViewModels.Skill
+@model FilterSkillViewModel
+@if (Model != null && Model.Entities.Any())
+{
+    <div class="col-12">
+        <h2 class="title title--h3">مهارت های من</h2>
+        <div class="box box__border">
+            <!-- Progress -->
+            @foreach (var skill in Model.Entities)
+            {
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="@skill.Proficiency" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-text"><span>@skill.Title</span><span>@skill.Proficiency%</span></div>
+                    </div>
+                    <div class="progress-text"><span>@skill.Title</span></div>
+                </div>
+            }
+        </div>
+    </div>
+}
+

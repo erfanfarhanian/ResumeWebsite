@@ -1,0 +1,12 @@
+﻿@using Resume.DAL.ViewModels.SocialMedia
+@model FilterSocialMediaViewModel
+
+@if (Model != null && Model.Entities.Any())
+{
+	<ul class="header__social">
+		@foreach (var socialMedia in Model.Entities)
+		{
+			<li><a href="@socialMedia.Url" target="_blank"><i class="@socialMedia.Icon"></i></a></li>
+		}
+	</ul>
+}

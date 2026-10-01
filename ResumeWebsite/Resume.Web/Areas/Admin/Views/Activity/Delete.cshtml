@@ -1,0 +1,50 @@
+﻿@using Resume.DAL.ViewModels.Activity
+@model DeleteActivityViewModel
+
+@{
+    ViewData["Title"] = "حذف فعالیت";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @ViewData["Title"]
+                </h2>
+            </div>
+            <div class="body">
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="ID" />
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div>
+                                    <input type="text" asp-for="Title" class="form-control" placeholder="عنوان" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <div>
+                                    <input type="text" asp-for="Description" class="form-control" placeholder="توضیحات" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <img src="@Model.Icon" />
+                                <div>
+                                    <input type="text" asp-for="Icon" class="form-control" placeholder="آیکون" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <button type="submit" class="btn btn-danger btn-lg m-l-15 waves-effect">حذف</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,190 @@
+﻿@using Resume.DAL.ViewModels.User
+
+@{
+    UserDetailsViewModel user = ViewData["User"] as UserDetailsViewModel ?? new UserDetailsViewModel();
+}
+
+<div>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li>
+                    <div class="sidebar-profile clearfix">
+                        <div class="profile-img">
+                            <img src="~/Admin/assets/images/usrbig.jpg" alt="@user.FirstName @user.LastName">
+                        </div>
+                        <div class="profile-info">
+                            <h3>@user.FirstName @user.LastName</h3>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a asp-area="Admin" asp-controller="Home" asp-action="Index">
+                        <i class="menu-icon ti-dashboard"></i>
+                        <span>داشبورد</span>
+                    </a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="menu-icon ti-home"></i>
+                        <span>صفحه اصلی</span>
+                    </a>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-user"></i>
+                        <span> کاربران</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="User" asp-action="List">لیست کاربران</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="User" asp-action="Create">افزودن کاربر</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-email"></i>
+                        <span> تماس با من</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="ContactUs" asp-action="List">لیست تماس با من</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-id-badge"></i>
+                        <span> درباره من</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="AboutMe" asp-action="Edit">درباره من</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-check-box"></i>
+                        <span> فعالیت ها</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Activity" asp-action="List">لیست فعالیت ها</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Activity" asp-action="Create">افزودن فعالیت</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-book"></i>
+                        <span> تحصیلات</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Education" asp-action="List">لیست تحصیلات</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Education" asp-action="Create">افزودن تحصیلات</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-briefcase"></i>
+                        <span> تجربه های کاری</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Experience" asp-action="List">لیست تجربه های کاری</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Experience" asp-action="Create">افزودن تجربه کاری</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-clipboard"></i>
+                        <span> گواهینامه ها</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Licence" asp-action="List">لیست گواهینامه ها</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Licence" asp-action="Create">افزودن گواهینامه</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-receipt"></i>
+                        <span> مهارت ها</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Skill" asp-action="List">لیست مهارت ها</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Skill" asp-action="Create">افزودن مهارت</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-receipt"></i>
+                        <span> نمونه کارها</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Portfolio" asp-action="List">لیست نمونه کارها</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Portfolio" asp-action="Create">افزودن نمونه کار</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-receipt"></i>
+                        <span>وبلاگ</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Blog" asp-action="List">لیست مطالب</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="Blog" asp-action="Create">افزودن مطالب</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onClick="return false;" class="menu-toggle">
+                        <i class="menu-icon ti-themify-favicon"></i>
+                        <span>شکبه های اجتماعی</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="SocialMedia" asp-action="List">لیست شبکه های اجتماعی</a>
+                        </li>
+                        <li class="active">
+                            <a asp-area="Admin" asp-controller="SocialMedia" asp-action="Create">افزودن شبکه اجتماعی</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Account" asp-action="Logout">
+                        <i class="menu-icon ti-arrow-left"></i>
+                        <span class="text text-danger">خروج</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- #Menu -->
+    </aside>
+    <!-- #END# Left Sidebar -->
+</div>

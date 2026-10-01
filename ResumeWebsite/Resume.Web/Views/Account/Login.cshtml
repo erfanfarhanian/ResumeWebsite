@@ -1,0 +1,91 @@
+﻿@using Resume.DAL.ViewModels.Account
+@model LoginViewModel
+
+@{
+	Layout = null;
+	ViewData["Title"] = "ورود";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<title>ورود</title>
+	<!-- Favicon-->
+	<link rel="icon" href="/Admin/assets/images/favicon.ico" type="image/x-icon">
+	<!-- Plugins Core Css -->
+	<link href="/Admin/assets/css/app.min.css" rel="stylesheet">
+    <link href="/Admin/assets/js/bundles/materialize-rtl/materialize-rtl.min.css" rel="stylesheet">
+	<!-- Custom Css -->
+	<link href="/Admin/assets/css/style.css" rel="stylesheet" />
+	<link href="/Admin/assets/css/pages/extra_pages.css" rel="stylesheet" />
+	<link href="/Admin/assets/css/custom-login.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form asp-action="Login" id="login" class="login100-form validate-form">
+					<span class="login100-form-title p-b-45">
+						ورود
+					</span>
+					
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="email" asp-for="Email">
+						<span class="focus-input100"></span>
+						<span class="label-input100">ایمیل</span>
+					</div>
+					<div class="put-right text-danger">
+						<span asp-validation-for="Email"></span>
+					</div>
+
+					<div class="wrap-input100">
+						<input class="input100" type="password" name="password" asp-for="Password">
+						<span class="focus-input100"></span>
+						<span class="label-input100">رمز عبور</span>
+					</div>
+					<div class="put-right text-danger">
+						<span asp-validation-for="Password"></span>
+					</div>
+
+					<div dir="rtl" class="flex-sb-m w-full p-t-15 p-b-20">
+						<div class="form-check">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" value=""> مرا به خاطر بسپار
+								<span class="form-check-sign">
+									<span class="check"></span>
+								</span>
+							</label>
+						</div>
+					</div>
+			
+					<div class="submit">
+						<button class="login100-form-btn">
+							ورود
+						</button>
+					</div>
+					<div dir="rtl" class="flex-sb-m w-full p-t-15 p-b-20">
+						<a asp-area="" asp-controller="Home" asp-action="Index">
+							بازگشت به صفحه اصلی
+						</a>
+					</div>
+					<div class="text-center p-t-45 p-b-20">
+					</div>
+				</form>
+
+				<div class="login100-more" style="background-image: url('/Admin/assets/images/pages/bg-01.png');">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Plugins Js -->
+	<script src="/Admin/assets/js/app.min.js"></script>
+	<!-- Extra page Js -->
+	<script src="/Admin/assets/js/pages/examples/pages.js"></script>
+</body>
+
+</html>

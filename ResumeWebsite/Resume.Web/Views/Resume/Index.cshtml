@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "رزومه";
+}
+
+<div class="box box-content">
+    <div class="pb-2">
+        <h1 class="title title--h1 first-title title__separate">رزومه</h1>
+    </div>
+
+    <!-- Experience -->
+    <div class="row">
+        @await Component.InvokeAsync("Education")
+        @await Component.InvokeAsync("Experience")
+        @await Component.InvokeAsync("Licence")
+    </div>
+
+    <!-- Skills -->
+    <div class="row">
+        @await Component.InvokeAsync("Skill")
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿@using Resume.DAL.ViewModels.Licence
+@model FilterLicenceViewModel
+
+@if (Model != null && Model.Entities.Any())
+{
+    <div class="col-12">
+        <h2 class="title title--h3"><img class="title-icon" src="/Site/assets/icons/icon-dev.svg" alt="گواهینامه ها" /> گواهینامه ها</h2>
+        <div class="timeline">
+            <!-- Item -->
+            @foreach (var licence in Model.Entities)
+            {
+                <article class="timeline__item">
+                    <h5 class="title title--h5 timeline__title">@licence.Title</h5>
+                    <p class="timeline__description">نام موسسه یا آموزشگاه: @licence.Institute</p>
+                    <p class="timeline__description">تاریخ صدور: @licence.IssueDate</p>
+                </article>
+            }
+        </div>
+    </div>
+}
